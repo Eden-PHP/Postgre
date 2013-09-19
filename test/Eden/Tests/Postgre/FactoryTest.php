@@ -13,7 +13,23 @@ class Eden_Tests_Postgre_FactoryTest extends \PHPUnit_Framework_TestCase
 	
 	public function setUp() {
 		date_default_timezone_set('GMT');
-		self::$database = eden('postgre', '127.0.0.1', 'appx', 'root', '');
+		self::$database = eden('postgre', '127.0.0.1', 'appx', 'cblanquera', '');
+		
+		/* SCHEMA
+		CREATE TABLE unit_post (
+			post_id bigserial primary key,
+			post_slug varchar(255) NOT NULL,
+			post_title varchar(255) default NULL,
+			post_detail text default NULL,
+			post_active int default 1,
+			post_type text default 'post',
+			post_flag int default 0,
+			post_visibility text default 'public',
+			post_status text default 'published',
+			post_published text NOT NULL,
+			post_created text NOT NULL,
+			post_updated text NOT NULL
+		); */
 	}
 	
 	/* FACTORY METHODS */
@@ -77,7 +93,7 @@ class Eden_Tests_Postgre_FactoryTest extends \PHPUnit_Framework_TestCase
     {
 		$query = self::$database->update();
 		
-		$this->assertInstanceOf('Eden\\Sql\\Update', $query);
+		$this->assertInstanceOf('Eden\\Postgre\\Update', $query);
     }
 	
 	public function testUtility() 
@@ -99,11 +115,8 @@ class Eden_Tests_Postgre_FactoryTest extends \PHPUnit_Framework_TestCase
 			'post_created' 		=> date('Y-m-d H:i:s'),
 			'post_updated' 		=> date('Y-m-d H:i:s')));
 		
-		$id = self::$database->getLastInsertedId();
-		
 		$now = self::$database->search('unit_post')->getTotal();
 		
-		$this->assertTrue($id > 0);
 		$this->assertEquals($total+1, $now);
 	}
 	

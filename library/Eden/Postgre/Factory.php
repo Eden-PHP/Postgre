@@ -95,7 +95,7 @@ class Factory extends SqlFactory
 		
 		$connection = 'pgsql:'.$host.$port.'dbname='.$this->name;
 		
-		$this->connection = new PDO($connection, $this->user, $this->pass, $options);
+		$this->connection = new \PDO($connection, $this->user, $this->pass, $options);
 		
 		$this->trigger('postgre-connect');
 		

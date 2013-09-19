@@ -31,7 +31,7 @@ class Select extends SqlSelect
 		$joins = empty($this->joins) ? '' : implode(' ', $this->joins);
 		$where = empty($this->where) ? '' : 'WHERE '.implode(' AND ', $this->where);
 		$sort = empty($this->sortBy) ? '' : 'ORDER BY '.implode(', ', $this->sortBy);
-		$limit = is_null($this->page) ? '' : 'LIMIT ' . $this->page .' OFFSET ' .$this->length;
+		$limit = is_null($this->page) ? '' : 'LIMIT ' . $this->length .' OFFSET ' .$this->page;
 		$group = empty($this->group) ? '' : 'GROUP BY ' . implode(', ', $this->group);
 		
 		$query = sprintf(

@@ -13,7 +13,7 @@ class Eden_Tests_Postgre_SearchTest extends \PHPUnit_Framework_TestCase
 	
 	public function setUp() {
 		date_default_timezone_set('GMT');
-		self::$database = eden('postgre', '127.0.0.1', 'appx', 'root', '');
+		self::$database = eden('postgre', '127.0.0.1', 'appx', 'cblanquera', '');
 	}
 	
 	/* FACTORY METHODS */

@@ -1,5 +1,5 @@
 {
-    "name": "eden-php/postgre",
+    "name": "eden/postgre",
     "type": "library",
     "description": "Eden PostGreSQL Search, Collection, Model ORM component",
     "keywords": ["eden", "library"],

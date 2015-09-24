@@ -13,7 +13,7 @@ namespace Eden\Postgre;
  * Generates update query string syntax
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
 class Update extends Delete 

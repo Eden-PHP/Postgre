@@ -9,8 +9,6 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Factory as SqlFactory;
-
 /**
  * Abstractly defines a layout of available methods to
  * connect to and query a Postgre database. This class also 
@@ -21,13 +19,13 @@ use Eden\Sql\Factory as SqlFactory;
  * searching, collections and models.
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Factory extends SqlFactory 
+class Index extends \Eden\Sql\Index 
 {
 	protected $host = 'localhost';
-	protected $port = null;
+	protected $port = '5432';
 	protected $name = null;
 	protected $user = null;
 	protected $pass = null;
@@ -80,7 +78,7 @@ class Factory extends SqlFactory
 	 * Connects to the database
 	 * 
 	 * @param array the connection options
-	 * @return Eden\Postgre\Factory
+	 * @return this
 	 */
 	public function connect(array $options = array()) 
 	{
@@ -133,7 +131,7 @@ class Factory extends SqlFactory
 	 *
 	 * @param string the name of the table
 	 * @param string|null
-	 * @return Eden\Postgre\Factory
+	 * @return this
 	 */
 	public function getColumns($table, $schema = null) 
 	{
@@ -197,7 +195,7 @@ class Factory extends SqlFactory
 	 *
 	 * @param string the name of the table
 	 * @param string|null
-	 * @return Eden\Postgre\Factory
+	 * @return this
 	 */
 	public function getIndexes($table, $schema = null) 
 	{
@@ -233,7 +231,7 @@ class Factory extends SqlFactory
 	 * Query for showing all columns of a table
 	 *
 	 * @param string the name of the table
-	 * @return Eden\Postgre\Factory
+	 * @return this
 	 */
 	public function getPrimary($table, $schema = null) 
 	{
@@ -312,7 +310,7 @@ class Factory extends SqlFactory
 	 * Set schema search paths
 	 *
 	 * @param string
-	 * @return Eden\Postgre\Factory
+	 * @return this
 	 */
 	public function setSchema($schema) 
 	{

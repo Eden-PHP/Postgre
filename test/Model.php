@@ -7,7 +7,7 @@
  * distributed with this package.
  */
  
-class Eden_Postgre_Tests_Postgre_ModelTest extends \PHPUnit_Framework_TestCase
+class EdenPostgreTestPostgreModelTest extends PHPUnit_Framework_TestCase
 {
 	public static $database;
 	

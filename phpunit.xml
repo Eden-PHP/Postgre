@@ -9,11 +9,14 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="Tests/bootstrap.php"
+         bootstrap="test/bootstrap.php"
 >
   <testsuites>
     <testsuite name="Eden Postgre Test Suite">
-      <directory>./Tests/Postgre</directory>
+    <file>test/Collection.php</file>
+    <file>test/Index.php</file>
+    <!-- <file>test/Model.php</file> -->
+    <!-- <file>test/Search.php</file> -->
     </testsuite>
   </testsuites>
 

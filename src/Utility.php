@@ -9,16 +9,14 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Query as SqlQuery;
-
 /**
  * Generates utility query strings
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Utility extends SqlQuery
+class Utility extends \Eden\Sql\Query
 {
 	protected $query = null;
 	
@@ -26,7 +24,7 @@ class Utility extends SqlQuery
 	 * Query for dropping a table
 	 *
 	 * @param string the name of the table
-	 * @return Eden\Postgre\Utility
+	 * @return this
 	 */
 	public function dropTable($table) 
 	{
@@ -52,7 +50,7 @@ class Utility extends SqlQuery
 	 *
 	 * @param string the name of the table
 	 * @param string the new name of the table
-	 * @return Eden\Postgre\Utility
+	 * @return this
 	 */
 	public function renameTable($table, $name) 
 	{
@@ -67,7 +65,7 @@ class Utility extends SqlQuery
 	 * Specify the schema
 	 * 
 	 * @param string
-	 * @return Eden\Postgre\Utility
+	 * @return this
 	 */
 	public function setSchema($schema)  
 	{
@@ -79,7 +77,7 @@ class Utility extends SqlQuery
 	 * Query for truncating a table
 	 *
 	 * @param string the name of the table
-	 * @return Eden\Postgre\Utility
+	 * @return this
 	 */
 	public function truncate($table) 
 	{

@@ -9,16 +9,14 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Select as SqlSelect;
-
 /**
  * Generates select query string syntax
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Select extends SqlSelect 
+class Select extends \Eden\Sql\Select 
 {
 	/**
 	 * Returns the string version of the query 

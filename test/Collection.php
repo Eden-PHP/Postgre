@@ -7,7 +7,7 @@
  * distributed with this package.
  */
  
-class Eden_Postgre_Tests_Postgre_CollectionTest extends \PHPUnit_Framework_TestCase
+class EdenPostgreTestPostgreCollectionTest extends PHPUnit_Framework_TestCase
 {
 	public static $database;
 	
@@ -19,6 +19,6 @@ class Eden_Postgre_Tests_Postgre_CollectionTest extends \PHPUnit_Framework_TestC
 	/* FACTORY METHODS */
     public function testAlter() 
     {
-		
+		$this->assertTrue(true);
     }
 }

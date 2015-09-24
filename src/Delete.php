@@ -9,16 +9,14 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Delete as SqlDelete;
-
 /**
  * Generates delete query string syntax
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Delete extends SqlDelete 
+class Delete extends \Eden\Sql\Delete 
 {
 	protected $table = null;
 	protected $where = array();

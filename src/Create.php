@@ -9,16 +9,14 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Query as SqlQuery;
-
 /**
  * Generates create table query string syntax
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Create extends SqlQuery 
+class Create extends \Eden\Sql\Query 
 {
 	protected $name	= null;
 	protected $fields = array();
@@ -42,7 +40,7 @@ class Create extends SqlQuery
 	 *
 	 * @param string name
 	 * @param array attributes
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function addField($name, array $attributes) 
 	{
@@ -57,7 +55,7 @@ class Create extends SqlQuery
 	 * Adds a primary key
 	 *
 	 * @param string name
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function addPrimaryKey($name) 
 	{
@@ -134,7 +132,7 @@ class Create extends SqlQuery
 	 * Sets a list of fields to the table
 	 *
 	 * @param array fields
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function setFields(array $fields) 
 	{
@@ -146,7 +144,7 @@ class Create extends SqlQuery
 	 * Sets the name of the table you wish to create
 	 *
 	 * @param string name
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function setName($name) 
 	{
@@ -161,7 +159,7 @@ class Create extends SqlQuery
 	 * Sets a list of primary keys to the table
 	 *
 	 * @param array primaryKeys
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function setPrimaryKeys(array $primaryKeys) 
 	{
@@ -173,7 +171,7 @@ class Create extends SqlQuery
 	 * Specifying if query should add the OIDs as columns
 	 *
 	 * @param bool
-	 * @return Eden\Postgre\Create
+	 * @return this
 	 */
 	public function withOids($oids) 
 	{

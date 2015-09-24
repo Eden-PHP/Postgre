@@ -9,16 +9,14 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Insert as SqlInsert;
-
 /**
  * Generates insert query string syntax
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Insert extends SqlInsert 
+class Insert extends \Eden\Sql\Insert 
 {
 	/**
 	 * Returns the string version of the query 

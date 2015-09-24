@@ -15,8 +15,8 @@
     <testsuite name="Eden Postgre Test Suite">
     <file>test/Collection.php</file>
     <file>test/Index.php</file>
-    <!-- <file>test/Model.php</file> -->
-    <!-- <file>test/Search.php</file> -->
+    <file>test/Model.php</file>
+    <file>test/Search.php</file>
     </testsuite>
   </testsuites>
 

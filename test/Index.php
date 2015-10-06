@@ -16,7 +16,7 @@ class Eden_Postgre_Test_Index extends PHPUnit_Framework_TestCase
 		self::$database = eden('postgre', '127.0.0.1', 'eden', 'postgres', '');
 		
 		//SCHEMA
-		self::$database::i()->query("CREATE TABLE unit_post (
+		self::$database->query("CREATE TABLE unit_post (
 			post_id bigserial primary key,
 			post_slug varchar(255) NOT NULL,
 			post_title varchar(255) default NULL,

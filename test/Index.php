@@ -15,6 +15,7 @@ class Eden_Postgre_Test_Index extends PHPUnit_Framework_TestCase
 		date_default_timezone_set('GMT');
 		self::$database = eden('postgre', '127.0.0.1', 'eden', 'postgres', '');
 		
+        self::$database->query('DROP TABLE unit_post');
 		//SCHEMA
 		self::$database->query("CREATE TABLE unit_post (
 			post_id bigserial primary key,

@@ -16,30 +16,30 @@ namespace Eden\Postgre;
  * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Delete extends \Eden\Sql\Delete 
+class Delete extends \Eden\Sql\Delete
 {
-	protected $table = null;
-	protected $where = array();
-	
-	/**
-	 * Construct: set table name, if given
-	 *
-	 * @param string|null
-	 */
-	public function __construct($table = null) 
-	{
-		if(is_string($table)) {
-			$this->setTable($table);
-		}
-	}
-	
-	/**
-	 * Returns the string version of the query 
-	 *
-	 * @return string
-	 */
-	public function getQuery() 
-	{
-		return 'DELETE FROM "'. $this->table . '" WHERE '. implode(' AND ', $this->where).';';
-	}
+    protected $table = null;
+    protected $where = array();
+    
+    /**
+     * Construct: set table name, if given
+     *
+     * @param string|null
+     */
+    public function __construct($table = null)
+    {
+        if (is_string($table)) {
+            $this->setTable($table);
+        }
+    }
+    
+    /**
+     * Returns the string version of the query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return 'DELETE FROM "'. $this->table . '" WHERE '. implode(' AND ', $this->where).';';
+    }
 }

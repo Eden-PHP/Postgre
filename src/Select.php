@@ -16,28 +16,33 @@ namespace Eden\Postgre;
  * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Select extends \Eden\Sql\Select 
+class Select extends \Eden\Sql\Select
 {
-	/**
-	 * Returns the string version of the query 
-	 *
-	 * @param  bool
-	 * @return string
-	 */
-	public function getQuery() 
-	{
-		$joins = empty($this->joins) ? '' : implode(' ', $this->joins);
-		$where = empty($this->where) ? '' : 'WHERE '.implode(' AND ', $this->where);
-		$sort = empty($this->sortBy) ? '' : 'ORDER BY '.implode(', ', $this->sortBy);
-		$limit = is_null($this->page) ? '' : 'LIMIT ' . $this->length .' OFFSET ' .$this->page;
-		$group = empty($this->group) ? '' : 'GROUP BY ' . implode(', ', $this->group);
-		
-		$query = sprintf(
-			'SELECT %s FROM %s %s %s %s %s %s;',
-			$this->select, $this->from, $joins,
-			$where, $group, $sort, $limit);
-		
-		return str_replace('  ', ' ', $query);
-	}
-	
+    /**
+     * Returns the string version of the query
+     *
+     * @param  bool
+     * @return string
+     */
+    public function getQuery()
+    {
+        $joins = empty($this->joins) ? '' : implode(' ', $this->joins);
+        $where = empty($this->where) ? '' : 'WHERE '.implode(' AND ', $this->where);
+        $sort = empty($this->sortBy) ? '' : 'ORDER BY '.implode(', ', $this->sortBy);
+        $limit = is_null($this->page) ? '' : 'LIMIT ' . $this->length .' OFFSET ' .$this->page;
+        $group = empty($this->group) ? '' : 'GROUP BY ' . implode(', ', $this->group);
+        
+        $query = sprintf(
+            'SELECT %s FROM %s %s %s %s %s %s;',
+            $this->select,
+            $this->from,
+            $joins,
+            $where,
+            $group,
+            $sort,
+            $limit
+        );
+        
+        return str_replace('  ', ' ', $query);
+    }
 }

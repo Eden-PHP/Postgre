@@ -1,6 +1,8 @@
 language: php
 php:
 - 5.4
+addons:
+  postgresql: "9.3"
 install:
 - pear install pear/PHP_CodeSniffer
 - /home/travis/.phpenv/versions/5.5/bin/composer install

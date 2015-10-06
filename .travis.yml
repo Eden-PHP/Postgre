@@ -9,7 +9,7 @@ install:
 - phpenv rehash 
 
 before_script:
-- psql -c "CREATE DATABASE eden;" -U postgres
+- psql -c "CREATE DATABASE eden;" -U postgres -h 127.0.0.1
 
 script:
 - phpunit

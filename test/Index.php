@@ -15,8 +15,8 @@ class Eden_Postgre_Test_Index extends PHPUnit_Framework_TestCase
 		date_default_timezone_set('GMT');
 		self::$database = eden('postgre', '127.0.0.1', 'eden', 'postgres', '');
 		
-		/* SCHEMA
-		CREATE TABLE unit_post (
+		//SCHEMA
+		self::$database::i()->query("CREATE TABLE unit_post (
 			post_id bigserial primary key,
 			post_slug varchar(255) NOT NULL,
 			post_title varchar(255) default NULL,
@@ -29,7 +29,7 @@ class Eden_Postgre_Test_Index extends PHPUnit_Framework_TestCase
 			post_published text NOT NULL,
 			post_created text NOT NULL,
 			post_updated text NOT NULL
-		); */
+		);");
 	}
 	
 	/* FACTORY METHODS */
@@ -212,4 +212,8 @@ class Eden_Postgre_Test_Index extends PHPUnit_Framework_TestCase
 		
 		$this->assertEquals($total-4, $now);
 	}
+
+    public function testDrop() {
+        self::$database->query('DROP TABLE unit_post');
+    }
 }

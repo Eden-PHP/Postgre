@@ -7,7 +7,7 @@ install:
 - phpenv rehash 
 
 before_script:
-  - psql -c "CREATE TABLE eden (post_id bigserial primary key, post_slug varchar(255) NOT NULL, post_title varchar(255) default NULL, post_detail text default NULL, post_active int default 1, post_type text default 'post', post_flag int default 0, post_visibility text default 'public', post_status text default 'published', post_published text NOT NULL, post_created text NOT NULL, post_updated text NOT NULL );" -U postgres
+- psql -c "CREATE DATABASE eden;" -U postgre
 
 script:
 - phpunit

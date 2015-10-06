@@ -31,7 +31,6 @@ class Eden_Postgre_Test_Search extends PHPUnit_Framework_TestCase
 			post_updated text NOT NULL
 		);");
 	}
-	}
 	
 	/* FACTORY METHODS */
     public function testSearch() 

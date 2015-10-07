@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/Eden-PHP/Postgre.png)](https://travis-ci.org/Eden-PHP/Postgre)
+====
 # PostGreSQL
 
 - [Basic Querying](#basic)

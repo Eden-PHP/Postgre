@@ -9,15 +9,13 @@
 
 namespace Eden\Postgre;
 
-use Eden\Sql\Exception as SqlException;
-
 /**
  * Sql Errors
  *
  * @vendor Eden
- * @package Postgre
+ * @package postgre
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Exception extends SqlException
+class Exception extends \Eden\Sql\Exception
 {
 }

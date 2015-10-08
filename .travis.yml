@@ -1,1 +1,17 @@
+language: php
+php:
+- 5.4
+addons:
+  postgresql: "9.3"
+install:
+- pear install pear/PHP_CodeSniffer
+- /home/travis/.phpenv/versions/5.5/bin/composer install
+- phpenv rehash 
 
+before_script:
+- psql -c "CREATE DATABASE eden;" -U postgres -h 127.0.0.1
+- psql -U postgres -h 127.0.0.1 -d eden -c "CREATE TABLE unit_post ( post_id bigserial primary key,post_slug varchar(255) NOT NULL,post_title varchar(255) default NULL,post_detail text default NULL,post_active int default 1,post_type text default 'post',post_flag int default 0,post_visibility text default 'public',post_status text default 'published',post_published text NOT NULL,post_created text NOT NULL, post_updated text NOT NULL);"
+
+script:
+- phpunit
+- phpcs

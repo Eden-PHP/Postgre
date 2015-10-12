@@ -15,9 +15,10 @@ namespace Eden\Postgre;
  * overloaded and overrided as well as provide some basic class
  * loading patterns.
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Base extends \Eden\Core\Base
 {

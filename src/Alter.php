@@ -12,9 +12,10 @@ namespace Eden\Postgre;
 /**
  * Generates alter query string syntax
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Alter extends \Eden\Sql\Query
 {
@@ -42,6 +43,7 @@ class Alter extends \Eden\Sql\Query
      *
      * @param string name
      * @param array attributes
+     *
      * @return Eden\Postgre\Alter
      */
     public function addField($name, array $attributes)
@@ -57,6 +59,7 @@ class Alter extends \Eden\Sql\Query
      * Adds a primary key
      *
      * @param string name
+     *
      * @return Eden\Postgre\Alter
      */
     public function addPrimaryKey($name)
@@ -74,6 +77,7 @@ class Alter extends \Eden\Sql\Query
      *
      * @param string name
      * @param array attributes
+     *
      * @return Eden\Postgre\Alter
      */
     public function changeField($name, array $attributes)
@@ -89,6 +93,7 @@ class Alter extends \Eden\Sql\Query
      * Returns the string version of the query
      *
      * @param  bool
+     *
      * @return string
      */
     public function getQuery($unbind = false)
@@ -207,6 +212,7 @@ class Alter extends \Eden\Sql\Query
      * Removes a field
      *
      * @param string name
+     *
      * @return Eden\Postgre\Alter
      */
     public function removeField($name)
@@ -222,6 +228,7 @@ class Alter extends \Eden\Sql\Query
      * Removes a primary key
      *
      * @param string name
+     *
      * @return Eden\Postgre\Alter
      */
     public function removePrimaryKey($name)
@@ -237,6 +244,7 @@ class Alter extends \Eden\Sql\Query
      * Sets the name of the table you wish to create
      *
      * @param string name
+     *
      * @return Eden\Postgre\Alter
      */
     public function setName($name)

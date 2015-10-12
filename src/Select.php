@@ -12,9 +12,10 @@ namespace Eden\Postgre;
 /**
  * Generates select query string syntax
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Select extends \Eden\Sql\Select
 {
@@ -22,6 +23,7 @@ class Select extends \Eden\Sql\Select
      * Returns the string version of the query
      *
      * @param  bool
+     *
      * @return string
      */
     public function getQuery()

@@ -18,9 +18,10 @@ namespace Eden\Postgre;
  * all SQL classes, comes coupled with loosely defined
  * searching, collections and models.
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Index extends \Eden\Sql\Index
 {
@@ -78,6 +79,7 @@ class Index extends \Eden\Sql\Index
      * Connects to the database
      *
      * @param array the connection options
+     *
      * @return this
      */
     public function connect(array $options = array())
@@ -131,6 +133,7 @@ class Index extends \Eden\Sql\Index
      *
      * @param string the name of the table
      * @param string|null
+     *
      * @return this
      */
     public function getColumns($table, $schema = null)
@@ -195,6 +198,7 @@ class Index extends \Eden\Sql\Index
      *
      * @param string the name of the table
      * @param string|null
+     *
      * @return this
      */
     public function getIndexes($table, $schema = null)
@@ -231,6 +235,7 @@ class Index extends \Eden\Sql\Index
      * Query for showing all columns of a table
      *
      * @param string the name of the table
+     *
      * @return this
      */
     public function getPrimary($table, $schema = null)
@@ -310,6 +315,7 @@ class Index extends \Eden\Sql\Index
      * Set schema search paths
      *
      * @param string
+     *
      * @return this
      */
     public function setSchema($schema)

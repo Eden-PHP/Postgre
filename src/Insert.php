@@ -12,9 +12,10 @@ namespace Eden\Postgre;
 /**
  * Generates insert query string syntax
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Insert extends \Eden\Sql\Insert
 {
@@ -22,6 +23,7 @@ class Insert extends \Eden\Sql\Insert
      * Returns the string version of the query
      *
      * @param  bool
+     *
      * @return string
      */
     public function getQuery()
@@ -42,6 +44,7 @@ class Insert extends \Eden\Sql\Insert
      *
      * @param string
      * @param string
+     *
      * @return this
      * @notes loads a set into registry
      */

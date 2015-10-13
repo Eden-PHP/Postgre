@@ -1,9 +1,9 @@
 <?php //-->
-/*
- * This file is part of the Postgre package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
@@ -12,19 +12,24 @@ namespace Eden\Postgre;
 /**
  * Generates utility query strings
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  Postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Utility extends \Eden\Sql\Query
 {
+    /**
+     * @var string|null $query The query string
+     */
     protected $query = null;
     
     /**
      * Query for dropping a table
      *
-     * @param string the name of the table
-     * @return this
+     * @param *string $table The name of the table
+     *
+     * @return Eden\Postgre\Utility
      */
     public function dropTable($table)
     {
@@ -48,9 +53,10 @@ class Utility extends \Eden\Sql\Query
     /**
      * Query for renaming a table
      *
-     * @param string the name of the table
-     * @param string the new name of the table
-     * @return this
+     * @param *string $table The name of the table
+     * @param *string $name  The new name of the table
+     *
+     * @return Eden\Postgre\Utility
      */
     public function renameTable($table, $name)
     {
@@ -64,8 +70,9 @@ class Utility extends \Eden\Sql\Query
     /**
      * Specify the schema
      *
-     * @param string
-     * @return this
+     * @param *string $schema The schema name
+     *
+     * @return Eden\Postgre\Utility
      */
     public function setSchema($schema)
     {
@@ -76,8 +83,9 @@ class Utility extends \Eden\Sql\Query
     /**
      * Query for truncating a table
      *
-     * @param string the name of the table
-     * @return this
+     * @param *string $table The name of the table
+     *
+     * @return Eden\Postgre\Utility
      */
     public function truncate($table)
     {

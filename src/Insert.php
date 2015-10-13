@@ -1,9 +1,9 @@
 <?php //-->
-/*
- * This file is part of the Postgre package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
@@ -12,16 +12,16 @@ namespace Eden\Postgre;
 /**
  * Generates insert query string syntax
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  Postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Insert extends \Eden\Sql\Insert
 {
     /**
      * Returns the string version of the query
      *
-     * @param  bool
      * @return string
      */
     public function getQuery()
@@ -40,8 +40,10 @@ class Insert extends \Eden\Sql\Insert
      * Set clause that assigns a given field name to a given value.
      * You can also use this to add multiple rows in one call
      *
-     * @param string
-     * @param string
+     * @param *string      $key   The column name
+     * @param *scalar|null $value The column value
+     * @param int          $index For what row is this for?
+     *
      * @return this
      * @notes loads a set into registry
      */

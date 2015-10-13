@@ -1,9 +1,9 @@
 <?php //-->
-/*
- * This file is part of the Postgre package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
@@ -18,26 +18,46 @@ namespace Eden\Postgre;
  * all SQL classes, comes coupled with loosely defined
  * searching, collections and models.
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  Postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Index extends \Eden\Sql\Index
 {
+    /**
+     * @var string $host Database host
+     */
     protected $host = 'localhost';
+
+    /**
+     * @var string $port Database port
+     */
     protected $port = '5432';
+
+    /**
+     * @var string|null $name Database name
+     */
     protected $name = null;
+
+    /**
+     * @var string|null $user Database user name
+     */
     protected $user = null;
+
+    /**
+     * @var string|null $pass Database password
+     */
     protected $pass = null;
     
     /**
      * Construct: Store connection information
      *
-     * @param string|null
-     * @param string
-     * @param string
-     * @param string|null
-     * @param number|null
+     * @param *string      $host Database host
+     * @param *string|null $name Database name
+     * @param *string|null $user Database user name
+     * @param string|null  $pass Database password
+     * @param number|null  $port Database port
      */
     public function __construct($host, $name, $user, $pass = null, $port = null)
     {
@@ -64,6 +84,8 @@ class Index extends \Eden\Sql\Index
     /**
      * Returns the alter query builder
      *
+     * @param *string $name Name of table
+     *
      * @return Eden\Postgre\Alter
      */
     public function alter($name = null)
@@ -77,8 +99,9 @@ class Index extends \Eden\Sql\Index
     /**
      * Connects to the database
      *
-     * @param array the connection options
-     * @return this
+     * @param array $options the connection options
+     *
+     * @return Eden\Postgre\Index
      */
     public function connect(array $options = array())
     {
@@ -103,6 +126,8 @@ class Index extends \Eden\Sql\Index
     /**
      * Returns the create query builder
      *
+     * @param *string $name Name of table
+     *
      * @return Eden\Postgre\Create
      */
     public function create($name = null)
@@ -115,6 +140,8 @@ class Index extends \Eden\Sql\Index
     
     /**
      * Returns the delete query builder
+     *
+     * @param *string|null $table The table name
      *
      * @return Eden\Postgre\Delete
      */
@@ -129,9 +156,10 @@ class Index extends \Eden\Sql\Index
     /**
      * Query for showing all columns of a table
      *
-     * @param string the name of the table
-     * @param string|null
-     * @return this
+     * @param *string $table   The name of the table
+     * @param array   $filters Where filters
+     *
+     * @return array
      */
     public function getColumns($table, $schema = null)
     {
@@ -193,9 +221,10 @@ class Index extends \Eden\Sql\Index
     /**
      * Query for showing all columns of a table
      *
-     * @param string the name of the table
-     * @param string|null
-     * @return this
+     * @param *string     $table  the name of the table
+     * @param string|null $schema if from a particular schema
+     *
+     * @return array
      */
     public function getIndexes($table, $schema = null)
     {
@@ -230,8 +259,10 @@ class Index extends \Eden\Sql\Index
     /**
      * Query for showing all columns of a table
      *
-     * @param string the name of the table
-     * @return this
+     * @param *string     $table  the name of the table
+     * @param string|null $schema if from a particular schema
+     *
+     * @return array
      */
     public function getPrimary($table, $schema = null)
     {
@@ -266,7 +297,7 @@ class Index extends \Eden\Sql\Index
     /**
      * Returns a listing of tables in the DB
      *
-     * @return attay|false
+     * @return array|false
      */
     public function getTables()
     {
@@ -283,6 +314,8 @@ class Index extends \Eden\Sql\Index
     /**
      * Returns the insert query builder
      *
+     * @param string|null $table Name of table
+     *
      * @return Eden\Postgre\Insert
      */
     public function insert($table = null)
@@ -295,6 +328,8 @@ class Index extends \Eden\Sql\Index
     
     /**
      * Returns the select query builder
+     *
+     * @param string|array $select Column list
      *
      * @return Eden\Postgre\Select
      */
@@ -309,8 +344,9 @@ class Index extends \Eden\Sql\Index
     /**
      * Set schema search paths
      *
-     * @param string
-     * @return this
+     * @param string $schema Schema name
+     *
+     * @return Eden\Postgre\Index
      */
     public function setSchema($schema)
     {
@@ -334,6 +370,8 @@ class Index extends \Eden\Sql\Index
     
     /**
      * Returns the update query builder
+     *
+     * @param string|null $table Name of table
      *
      * @return Eden\Postgre\Update
      */

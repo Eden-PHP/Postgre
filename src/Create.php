@@ -1,9 +1,9 @@
 <?php //-->
-/*
- * This file is part of the Postgre package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
@@ -12,21 +12,37 @@ namespace Eden\Postgre;
 /**
  * Generates create table query string syntax
  *
- * @vendor Eden
- * @package postgre
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  Postgre
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Create extends \Eden\Sql\Query
 {
-    protected $name     = null;
+/**
+     * @var string|null $name Name of table
+     */
+    protected $name = null;
+
+    /**
+     * @var array $fields List of fields
+     */
     protected $fields = array();
+
+    /**
+     * @var array $primaryKeys List of primary keys
+     */
     protected $primaryKeys = array();
-    protected $oids     = false;
+
+    /**
+     * @var array $oids Whether to use OIDs
+     */
+    protected $oids = false;
     
     /**
      * Construct: set table name, if given
      *
-     * @param string|null
+     * @param string|null $name Name of table
      */
     public function __construct($name = null)
     {
@@ -38,9 +54,10 @@ class Create extends \Eden\Sql\Query
     /**
      * Adds a field in the table
      *
-     * @param string name
-     * @param array attributes
-     * @return this
+     * @param *string $name       Column name
+     * @param *array  $attributes Column attributes
+     *
+     * @return Eden\Postgre\Create
      */
     public function addField($name, array $attributes)
     {
@@ -54,8 +71,9 @@ class Create extends \Eden\Sql\Query
     /**
      * Adds a primary key
      *
-     * @param string name
-     * @return this
+     * @param *string $name Name of key
+     *
+     * @return Eden\Postgre\Create
      */
     public function addPrimaryKey($name)
     {
@@ -69,7 +87,8 @@ class Create extends \Eden\Sql\Query
     /**
      * Returns the string version of the query
      *
-     * @param  bool
+     * @param bool $unbind Whether to unbind variables
+     *
      * @return string
      * @notes returns the query based on the registry
      */
@@ -131,8 +150,9 @@ class Create extends \Eden\Sql\Query
     /**
      * Sets a list of fields to the table
      *
-     * @param array fields
-     * @return this
+     * @param array $fields List of fields
+     *
+     * @return Eden\Postgre\Create
      */
     public function setFields(array $fields)
     {
@@ -143,8 +163,9 @@ class Create extends \Eden\Sql\Query
     /**
      * Sets the name of the table you wish to create
      *
-     * @param string name
-     * @return this
+     * @param *string $name Table name
+     *
+     * @return Eden\Postgre\Create
      */
     public function setName($name)
     {
@@ -158,8 +179,9 @@ class Create extends \Eden\Sql\Query
     /**
      * Sets a list of primary keys to the table
      *
-     * @param array primaryKeys
-     * @return this
+     * @param *array $primaryKeys List of primary keys
+     *
+     * @return Eden\Postgre\Create
      */
     public function setPrimaryKeys(array $primaryKeys)
     {
@@ -170,8 +192,9 @@ class Create extends \Eden\Sql\Query
     /**
      * Specifying if query should add the OIDs as columns
      *
-     * @param bool
-     * @return this
+     * @param bool $oids true or false
+     *
+     * @return Eden\Postgre\Create
      */
     public function withOids($oids)
     {

@@ -1,9 +1,9 @@
 <?php //-->
-/*
- * This file is part of the Postgre package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
@@ -13,23 +13,46 @@ namespace Eden\Postgre;
  * Generates alter query string syntax
  *
  * @vendor   Eden
- * @package  postgre
+ * @package  Postgre
  * @author   Christian Blanquera <cblanquera@openovate.com>
  * @standard PSR-2
  */
 class Alter extends \Eden\Sql\Query
 {
+    /**
+     * @var string|null $name Name of table
+     */
     protected $name = null;
+
+    /**
+     * @var array $changeFields List of fields to change
+     */
     protected $changeFields = array();
+
+    /**
+     * @var array $addFields List of fields to add
+     */
     protected $addFields = array();
+
+    /**
+     * @var array $removeFields List of fields to remove
+     */
     protected $removeFields = array();
+
+    /**
+     * @var array $addPrimaryKeys List of primary keys to add
+     */
     protected $addPrimaryKeys = array();
+
+    /**
+     * @var array $removePrimaryKeys List of primary keys to remove
+     */
     protected $removePrimaryKeys = array();
     
     /**
      * Construct: set table name, if given
      *
-     * @param string|null
+     * @param string|null $name Table name
      */
     public function __construct($name = null)
     {
@@ -41,8 +64,8 @@ class Alter extends \Eden\Sql\Query
     /**
      * Adds a field in the table
      *
-     * @param string name
-     * @param array attributes
+     * @param *string $name       Column name
+     * @param *array  $attributes Column attributes
      *
      * @return Eden\Postgre\Alter
      */
@@ -58,7 +81,7 @@ class Alter extends \Eden\Sql\Query
     /**
      * Adds a primary key
      *
-     * @param string name
+     * @param *string $name Name of key
      *
      * @return Eden\Postgre\Alter
      */
@@ -75,8 +98,8 @@ class Alter extends \Eden\Sql\Query
      * Changes attributes of the table given
      * the field name
      *
-     * @param string name
-     * @param array attributes
+     * @param *string $name       Column name
+     * @param *array  $attributes Column attributes
      *
      * @return Eden\Postgre\Alter
      */
@@ -92,7 +115,7 @@ class Alter extends \Eden\Sql\Query
     /**
      * Returns the string version of the query
      *
-     * @param  bool
+     * @param bool $unbind Whether to unbind variables
      *
      * @return string
      */
@@ -211,7 +234,7 @@ class Alter extends \Eden\Sql\Query
     /**
      * Removes a field
      *
-     * @param string name
+     * @param *string $name Name of field
      *
      * @return Eden\Postgre\Alter
      */
@@ -227,7 +250,7 @@ class Alter extends \Eden\Sql\Query
     /**
      * Removes a primary key
      *
-     * @param string name
+     * @param *string $name Name of key
      *
      * @return Eden\Postgre\Alter
      */
@@ -243,7 +266,7 @@ class Alter extends \Eden\Sql\Query
     /**
      * Sets the name of the table you wish to create
      *
-     * @param string name
+     * @param *string $name Name of table
      *
      * @return Eden\Postgre\Alter
      */
